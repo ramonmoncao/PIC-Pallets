@@ -1,4 +1,4 @@
-import { createUser, deleteUser, findAllUsers, findUserByEmail, findUserById, updateUser } from '../repositories/user.repository' // Importa os métodos do repositório
+import { createUser, deleteUser, findAllUsers, findUserByEmail, findUserById, findUserbyIdWithTasks, updateUser } from '../repositories/user.repository'; // Importa os métodos do repositório
 
 export const createUserService = async (data: { name: string, email: string, password: string }) => {
   const user = await findUserByEmail(data.email) // Busca um usuário pelo e-mail
@@ -32,4 +32,8 @@ export const deleteUserService = async (id: number) => {
   }
 
   return deleteUser(id) // Deleta um usuário
+}
+
+export const findUserbyIdWithTasksService = async(id: number)=>{
+  return await findUserbyIdWithTasks(id)
 }

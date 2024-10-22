@@ -1,4 +1,4 @@
-import User from '../entities/user.entity' // Importa o modelo de usuário
+import User from '../entities/user.entity'; // Importa o modelo de usuário
 
 export const createUser = async (data: { name: string, email: string, password: string }) => {
   return User.create({ data }) // Cria um novo usuário
@@ -22,4 +22,8 @@ export const deleteUser = async (id: number) => {
 
 export const findUserById = async (id: number) => {
   return User.findFirst({ where: { id } }) // Busca um usuário pelo id
+}
+
+export const findUserbyIdWithTasks = async(id: number)=>{
+  return User.findFirst({where: {id}, include: {tasks: true}})
 }
