@@ -1,3 +1,5 @@
+import bcrypt from "bcrypt";
+import jose from "jose";
 import { createUser, deleteUser, findAllUsers, findUserByEmail, findUserById, findUserbyIdWithTasks, updateUser } from '../repositories/user.repository'; // Importa os métodos do repositório
 
 export const createUserService = async (data: { name: string, email: string, password: string }) => {
@@ -6,8 +8,8 @@ export const createUserService = async (data: { name: string, email: string, pas
   if (user) {
     throw new Error('Usuário já existe') // Se o usuário já existir, lança um erro
   }
-
-  return createUser(data) // Cria um novo usuário
+  const password = await bcrypt.hash(data.password,12)
+  return createUser({...data,password}) // Cria um novo usuário
 }
 
 export const findAllUsersService = async () => {
@@ -20,7 +22,7 @@ export const updateUserService = async (id: number, data: { name: string, email:
   if (!user) {
     throw new Error('Usuário não encontrado') // Se o usuário não existir, lança um erro
   }
-
+  
   return updateUser(id, data) // Atualiza um usuário
 }
 
@@ -36,4 +38,28 @@ export const deleteUserService = async (id: number) => {
 
 export const findUserbyIdWithTasksService = async(id: number)=>{
   return await findUserbyIdWithTasks(id)
+}
+export const findUserbyIdService = async(id: number)=>{
+  const user = await findUserById(id)
+  if(!user){
+    throw new Error('Usuário não encontrado')
+  }
+  return findUserById
+}
+export const authenticateUserServie = async(email: string, password: string)=>{
+  const user = await findUserByEmail(email)
+  if(!user)throw new Error('Usuário não encontrado')
+  const isValidPassword = await bcrypt.compare(password, user.password)
+  if(!isValidPassword) throw new Error('Senha inválida')
+
+  const payload = {id: user.id,email: user.email}
+  const  alg = 'HS256'
+  const secret = new TextEncoder().encode('minhasecretjwt')
+  const token = await new jose.SignJWT(payload)
+  .setProtectedHeader({alg})
+  .setIssuedAt()
+  .setIssuer('http://localhost:3000')
+  .setSubject('user')
+  .setExpirationTime('1h')
+  .sign(secret)
 }

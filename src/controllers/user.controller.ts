@@ -1,5 +1,6 @@
-import { Request, Response } from 'express' // Importa os tipos do Express
-import { createUserService, deleteUserService, findAllUsersService, updateUserService } from '../services/user.service' // Importa os métodos do serviço
+import { Request, Response } from 'express'; // Importa os tipos do Express
+import { createUserService, deleteUserService, findAllUsersService, findUserbyIdService, updateUserService } from '../services/user.service'; // Importa os métodos do serviço
+
 
 export const createUser = async (req: Request, res: Response) => {
   try {
@@ -30,5 +31,14 @@ export const deleteUser = async (req: Request, res: Response) => {
     return res.status(204).send() // Retorna uma resposta vazia
   } catch (error) {
     return res.status(400).json({ message: error }) // Retorna um erro
+  }
+}
+export const findUserbyId = async(req: Request,res: Response)=>{
+  try{
+    const user = findUserbyIdService(Number(req.params.id))
+    return res.status(400).json(user)
+  }
+  catch(error){
+    return res.status(400).json({message: error})
   }
 }

@@ -19,6 +19,7 @@ model User {
   email String  @unique
   password String
   tasks Task[]
+  
 }
 model Task{
   id Int @id @default(autoincrement())
@@ -26,4 +27,21 @@ model Task{
   completed Boolean @default(false)
   userId Int
   user User @relation(fields: [userId], references: [id])
+}
+model Product{
+  id Int @id @default(autoincrement())
+  name String
+  width Int
+  lenght Int
+  capacity Int
+  price Float
+  userId Int
+  user Items @relation(fields: [userId], references: [id]) 
+}
+model Items{
+  id Int @id @default(autoincrement())
+  quantity Int
+  price Float
+  subtotal Float
+  products Product[]
 }

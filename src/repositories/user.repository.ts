@@ -1,7 +1,8 @@
 import User from '../entities/user.entity'; // Importa o modelo de usuário
 
 export const createUser = async (data: { name: string, email: string, password: string }) => {
-  return User.create({ data }) // Cria um novo usuário
+  const user =await User.create({data})
+  return ({ ...user,password: undefined }) // Cria um novo usuário
 }
 
 export const findAllUsers = async () => {
