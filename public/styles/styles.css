@@ -1,0 +1,130 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos do Header e Menu */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .menu-btn {
+    font-size: 1.5rem;
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  .dropdown-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0;
+  }
+  
+  /* Catálogo de Produtos */
+  .product-catalog {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-card h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-card p {
+    margin-bottom: 1rem;
+  }
+  
+  .view-details {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Detalhes do Produto */
+  .product-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    display: none;
+  }
+  
+  .product-details.active {
+    display: flex;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
