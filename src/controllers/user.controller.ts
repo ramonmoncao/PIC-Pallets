@@ -35,8 +35,9 @@ export const deleteUser = async (req: Request, res: Response) => {
 }
 export const findUserbyId = async(req: Request,res: Response)=>{
   try{
-    const user = findUserbyIdService(Number(req.params.id))
-    return res.status(400).json(user)
+    const user = await findUserbyIdService(Number(req.params.id))
+    console.log(user)
+    return res.status(200).json(user)
   }
   catch(error){
     return res.status(400).json({message: error})

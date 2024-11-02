@@ -6,11 +6,11 @@ import { validate } from '../middlewares/validate.middleware';
 
 const router = Router() // Cria uma instância do Router
 
+router.get('/:id', findUserbyId)
 router.post('/', validate(CreateUserDto), createUser) // Define a rota para criar um usuário
 router.get('/', findAllUsers) // Define a rota para buscar todos os usuários
 router.patch('/:id', validate(UpdateUserDto), updateUser) // Define a rota para atualizar um usuário
 router.delete('/:id', deleteUser) // Define a rota para deletar um usuário
 router.get('/:id/tasks',findUserbyIdWithTasks)
-router.get('/:id',findUserbyId)
 
 export default router // Exporta o router

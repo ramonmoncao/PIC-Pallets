@@ -39,13 +39,15 @@ export const deleteUserService = async (id: number) => {
 export const findUserbyIdWithTasksService = async(id: number)=>{
   return await findUserbyIdWithTasks(id)
 }
+
 export const findUserbyIdService = async(id: number)=>{
   const user = await findUserById(id)
   if(!user){
     throw new Error('Usuário não encontrado')
   }
-  return findUserById
+  return user
 }
+
 export const authenticateUserServie = async(email: string, password: string)=>{
   const user = await findUserByEmail(email)
   if(!user)throw new Error('Usuário não encontrado')

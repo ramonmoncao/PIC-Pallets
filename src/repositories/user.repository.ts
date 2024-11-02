@@ -22,7 +22,7 @@ export const deleteUser = async (id: number) => {
 }
 
 export const findUserById = async (id: number) => {
-  return User.findFirst({ where: { id } }) // Busca um usuário pelo id
+  return await User.findFirst({where: {id}}) // Busca um usuário pelo id
 }
 
 export const findUserbyIdWithTasks = async(id: number)=>{
