@@ -1,98 +1,299 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja de Pallets</title>
-  <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Pallets Indaiatuba</title>
 </head>
 <body>
-  <!-- Header com o Menu e o Carrinho -->
-  <header>
-    <nav class="navbar">
-      <button class="menu-btn">☰</button>
-      <h1>Pallets Indaiatuba</h1>
-      <div class="cart">
-        <span class="cart-icon">🛒</span>
-        <span class="cart-count">0</span>
-      </div>
-    </nav>
-    <div class="dropdown-menu">
-      <a href="#products">Nossos Produtos</a>
-      <a href="#about">Sobre a Empresa</a>
-      <a href="#contact">Contato</a>
-    </div>
-  </header>
+    <header>
+        <nav id="navbar">
+            <i class="" id="nav_logo"> Pallets Indaiatuba</i>
 
-  <!-- Catálogo de Produtos -->
-  <main>
-    <section id="products" class="product-catalog">
-      <h2>Catálogo de Produtos</h2>
-      <div class="product-grid">
-        <!-- PBR Novo e Usado -->
-        <div class="product-card">
-          <h3>PBR Novo e Usado</h3>
-          <p>Medida: 100x120 cm</p>
-          <p>Capacidade: 1500 kg</p>
-          <button class="view-details">Ver Detalhes</button>
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Sobre nós</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                Faça seu orçamento conosco
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Sobre nós</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                Peça aqui
+            </button>
         </div>
+    </header>
 
-        <!-- Palete Médio -->
-        <div class="product-card">
-          <h3>Palete Médio</h3>
-          <p>Medida: 100x120 cm</p>
-          <p>Capacidade: 600 a 800 kg</p>
-          <button class="view-details">Ver Detalhes</button>
+    <main id="content">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title">
+            Segurança em cada
+                    <span>carga</span>
+                </h1>
+
+                <p class="description">
+                    Pallets de alta qualidade para transporte seguro e eficiente para cada passo
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="#" class="btn-default">
+                        V
+                    </a>
+
+                    <a href="tel:+55555555555" id="phone_button">
+                        <button class="btn-default">
+                            <i class="fa-solid fa-phone"></i>
+                        </button>
+                         (19) 99500-0074
+                    </a>
+                </div>
+
+                <div class="social-media-buttons">
+                    <a href="">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="banner">
+                <img src="src/images/hero.png" alt="">
+            </div>
+        </section>
+
+        <section id="menu">
+            <h2 class="section-title">Catálogo</h2>
+            <h3 class="section-subtitle">Nossos produtos</h3>
+
+            <div id="dishes">
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/dish.png" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/dish2.png" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/dish3.png" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="src/images/dish4.png" class="dish-image" alt="">
+
+                    <h3 class="dish-title">
+                        Lorem Ipsum
+                    </h3>
+
+                    <span class="dish-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R$20,00</h4>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <img src="src/images/chef.png" id="testimonial_chef" alt="">
+
+            <div id="testimonials_content">
+                <h2 class="section-title">
+                    Sobre nós
+                </h2>
+                <h3 class="section-subtitle">
+                    Nossa trajetória
+                </h3>
+
+                <div id="feedbacks">
+                    <div class="feedback">
+                        <img src="src/images/avatar.png" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                            
+                            <p>
+                                Fundada em 2021 por Roberto Rosa Silva, a Palete Indaiatuba nasceu com um propósito claro: oferecer ao mercado soluções de alta qualidade em pallets, fundamentais para o transporte e armazenamento seguro de mercadorias. Desde o início, a empresa se destacou por seu compromisso com a excelência, fornecendo produtos que unem robustez e durabilidade, essenciais para uma logística eficiente.
+                            </p>
+                        </div>
+                    </div>
+
+                    
+                    </div>
+                </div>
+
+                <button class="btn-default">
+                
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="src/images/wave.svg" alt="">
+
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2024 Pallets Indaiatuba
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
         </div>
-
-        <!-- Palete Leve -->
-        <div class="product-card">
-          <h3>Palete Leve</h3>
-          <p>Medida: 100x120 cm</p>
-          <p>Capacidade: 150 a 200 kg</p>
-          <button class="view-details">Ver Detalhes</button>
-        </div>
-
-        <!-- Plástico Forte -->
-        <div class="product-card">
-          <h3>Plástico Forte</h3>
-          <p>Medida: 100x120 cm</p>
-          <button class="view-details">Ver Detalhes</button>
-        </div>
-
-        <!-- Plástico Médio -->
-        <div class="product-card">
-          <h3>Plástico Médio</h3>
-          <p>Medida: 100x120 cm</p>
-          <button class="view-details">Ver Detalhes</button>
-        </div>
-
-        <!-- Plástico Leve -->
-        <div class="product-card">
-          <h3>Plástico Leve</h3>
-          <p>Medidas: 100x120 cm, 080x120 cm, 060x080 cm</p>
-          <button class="view-details">Ver Detalhes</button>
-        </div>
-
-        <!-- Chapatex -->
-        <div class="product-card">
-          <h3>Chapatex</h3>
-          <p>Medida: 100x120 cm</p>
-          <button class="view-details">Ver Detalhes</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Detalhes do Produto -->
-  <div class="product-details hidden">
-    <button class="close-btn">X</button>
-    <h3>Detalhes do Produto</h3>
-    <p>Descrição completa do produto...</p>
-    <p>Preço: R$ Valor</p>
-    <button class="add-to-cart">Adicionar ao Carrinho</button>
-  </div>
-
-  <script src="scripts/script.js"></script>
+    </footer>
+    <script src="src/javascript/script.js"></script>
 </body>
 </html>
