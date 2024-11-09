@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
 }
 
 model User {
@@ -18,30 +18,40 @@ model User {
   name  String
   email String  @unique
   password String
-  tasks Task[]
+  tasks Order[]
   
 }
-model Task{
+model Order{
   id Int @id @default(autoincrement())
-  title String
-  completed Boolean @default(false)
+  date DateTime
+  status String
   userId Int
   user User @relation(fields: [userId], references: [id])
+  items Items[]
+  payment Payment[]
 }
 model Product{
   id Int @id @default(autoincrement())
   name String
   width Int
-  lenght Int
+  length Int
   capacity Int
   price Float
-  userId Int
-  user Items @relation(fields: [userId], references: [id]) 
+  item Items[]
 }
 model Items{
   id Int @id @default(autoincrement())
   quantity Int
   price Float
   subtotal Float
+  orderId Int
   products Product[]
+  order Order  @relation(fields: [orderId], references: [id]) 
+}
+model Payment{
+  id Int @id @default(autoincrement())
+  value Float
+  date DateTime
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id])
 }

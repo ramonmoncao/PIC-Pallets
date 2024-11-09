@@ -6,7 +6,7 @@ export const createProductService = async (data: CreateProductDto) => {
 }
 
 export const findAllProductsService = async () => {
-    return findAllProducts()
+    return await findAllProducts()
 }
 
 export const findProductByIdService = async (id: number) => {

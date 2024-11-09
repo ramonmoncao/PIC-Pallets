@@ -1,5 +1,5 @@
 #home {
-    background-color: #146eab;
+    background-color: var(--color-primary-3);
     display: flex;
     min-height: calc(100vh - 91px);
     position: relative;

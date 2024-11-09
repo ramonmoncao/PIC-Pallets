@@ -1,8 +1,8 @@
 import { CreateProductDto, UpdateProductDto } from "../dtos/product.dto";
-import Product from '../entities/product.entity'
+import Product from '../entities/product.entity';
 
 export const createProduct = async (data: CreateProductDto) => {
-    return Product.create({ data })
+    const user = await Product.create({data})
 }
 
 export const findAllProducts = async () => {

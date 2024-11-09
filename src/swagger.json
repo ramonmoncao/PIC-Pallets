@@ -16,7 +16,16 @@
                 "responses":{
                     "200":{
                         "descritption": "Sucesso",
-                        "content": {}
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schema/User"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

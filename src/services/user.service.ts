@@ -13,7 +13,7 @@ export const createUserService = async (data: { name: string, email: string, pas
 }
 
 export const findAllUsersService = async () => {
-  return findAllUsers() // Busca todos os usuários
+  return await findAllUsers() // Busca todos os usuários
 }
 
 export const updateUserService = async (id: number, data: { name: string, email: string, password: string }) => {
