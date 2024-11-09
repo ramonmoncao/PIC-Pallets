@@ -3,7 +3,7 @@ import { IsDate, IsInt, IsNotEmpty, IsNumber, IsOptional, IsPositive, IsString }
 export class CreatePaymentDto {
     @IsString()
     @IsNotEmpty()
-    orderId!: string  // Identificador (obrigatório)
+    orderId!: number  // Identificador (obrigatório)
 
     @IsNumber()
     @IsNotEmpty()
