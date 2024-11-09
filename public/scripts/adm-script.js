@@ -20,13 +20,14 @@ function carregarDados() {
             const produtoDiv = document.createElement('div');
             produtoDiv.classList.add('produto');
             produtoDiv.innerHTML = `
+                <div class=produto-img><img id= imgProduct src=${produto.img} alt =${produto.name}Img></img></div>
                 <div class="produto-id"><strong>id: ${produto.id}</strong></div>
                 <div class="produto-nome"><strong> ${produto.name}</strong></div>
                 <div class="produto-tamanho"> ${produto.width}x${produto.length}</div>
                 <div class="produto-capacidade"><strong>Capacidade:</strong> ${produto.capacity}KG</div>
                 <div class="produto-preco"><strong> R$${produto.price},00 </strong></div>
                 <div class ="produto-heart"><i class="fa-solid fa-heart"></i></div>
-                <button class="produto-btn"><i class="editar">Editar</i></button>
+                <a class="produto-btn" href= "atualizarProduto.html?id=${produto.id}"><i class="editar">Editar</i></a>
                 <button class="produto-btn"><i class="remover" onclick= removerProduto(${produto.id})>Remover</i></button>
             `
             dadosContainer.appendChild(produtoDiv);

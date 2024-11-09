@@ -23,25 +23,22 @@ export class CreateProductDto {
 
     @IsString()
     @IsOptional()
-    img?: string
+    img!: string
 }
 
 export class UpdateProductDto {
-    @IsInt()
-    @IsNotEmpty()
-    id!: number
     
     @IsString()
-    @IsNotEmpty()
-    name!: string
+    @IsOptional()
+    name?: string
 
     @IsInt()
-    @IsNotEmpty()
-    width!: number
+    @IsOptional()
+    width?: number
 
     @IsInt()
-    @IsNotEmpty()
-    lenght!: number
+    @IsOptional()
+    lenght?: number
 
     @IsNumber()
     @IsOptional()

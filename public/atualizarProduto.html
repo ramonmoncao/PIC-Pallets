@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+</head>
+<body>
+    <h1>Atualizar Produto</h1>
+    <a href="admPage.html">Voltar</a>
+    <!-- Formulário de atualização -->
+    <form id="updateForm">
+        <label for="productName">Nome do Produto:</label>
+        <input type="text" id="productName" required><br>
+
+        <label for="productWidth">Largura:</label>
+        <input type="number" id="productWidth" required><br>
+
+        <label for="productLength">Comprimento:</label>
+        <input type="number" id="productLength" required><br>
+
+        <label for="productPrice">Preço:</label>
+        <input type="number" id="productPrice" required><br>
+
+        <button type="button" onclick="updateProduct()">Atualizar Produto</button>
+    </form>
+
+    <script>
+        // Função para obter o ID do produto da URL
+        function getProductId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Função para buscar os dados do produto e preencher o formulário
+        function loadProductData(productId) {
+            console.log(productId)
+            fetch(`http://localhost:3000/api/products/${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.getElementById('productName').value = data.name;
+                        document.getElementById('productWidth').value = data.width;
+                        document.getElementById('productLength').value = data.length;
+                        document.getElementById('productPrice').value = data.price;
+                    } else {
+                        alert('Produto não encontrado!');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar os dados do produto:', error);
+                });
+        }
+
+        // Função de atualização de produto
+        function updateProduct() {
+            const productId = getProductId(); // Pega o ID do produto da URL
+
+            // Obter os valores dos campos do formulário
+            const name = document.getElementById('productName').value;
+            const width = Number(document.getElementById('productWidth').value);
+            const length = Number(document.getElementById('productLength').value);
+            const price = Number(document.getElementById('productPrice').value);
+
+            // Criar o objeto com os dados que serão atualizados
+            const updatedProduct = {
+                name: name,
+                width: width,
+                length: length,
+                price: price
+            };
+
+            // Fazer a requisição PATCH para a API
+            fetch(`http://localhost:3000/api/products/${productId}`, {
+                method: 'PATCH',  // Método PATCH para atualização
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedProduct)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Produto atualizado:', data);
+                alert('Produto atualizado com sucesso!');
+                document.getElementById('updateForm').reset();  // Limpa o formulário após a atualização
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar o produto:', error);
+                alert('Erro ao atualizar o produto.');
+            });
+        }
+
+        // Carregar os dados do produto assim que a página for carregada
+        window.onload = function() {
+            const productId = getProductId();  // Pega o ID do produto da URL
+            loadProductData(productId);  // Carrega os dados do produto
+        };
+    </script>
+</body>
+</html>
