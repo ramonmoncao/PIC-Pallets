@@ -7,11 +7,11 @@
 
 :root {
     --color-primary-1: rgb(234, 247, 255);
-    --color-primary-2: #2115c4;
-    --color-primary-3: #aedaf8;
-    --color-primary-4: #9adff1;
-    --color-primary-5: #020484;
-    --color-primary-6: #146eab;
+    --color-primary-2: #5449f3;
+    --color-primary-3: #81c3d7;
+    --color-primary-4: #16425b;
+    --color-primary-5: #3a7ca5;
+    --color-primary-6: #020202;
 
     --color-neutral-0: #fff;
     --color-neutral-1: #1d1d1d;
@@ -47,6 +47,7 @@ section {
     font-weight: 600;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    color: var(--color-neutral-0);
     transition: background-color .3s ease;
 }
 

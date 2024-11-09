@@ -18,5 +18,11 @@ export const updateProductService = async (id: number, data: UpdateProductDto) =
 }
 
 export const deleteProductService = async (id: number) => {
-    return deleteProduct(id)
+    const user = await findProductById(id) // Busca um usuário pelo id
+
+  if (!user) {
+    throw new Error('Produto não encontrado') // Se o usuário não existir, lança um erro
+  }
+
+  return deleteProduct(id)
 }

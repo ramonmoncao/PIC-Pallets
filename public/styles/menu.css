@@ -5,32 +5,33 @@
     justify-content: center;
     min-height: 100vh;
 }
-
-#dishes {
+.produto-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-5);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color .3s ease;
+    color: var(--color-primary-1);
+}
+.produto-btn:hover {
+    background-color: var(--color-primary-5);
+}
+#produtos {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 24px;
     margin-top: 32px;
 }
-
-.dish {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    gap: 18px;
-    width: 25%;
-    padding: 20px;
-    background-color: var(--color-neutral-0);
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.dish-heart {
+.produto-heart {
     position: absolute;
-    background-color: var(--color-primary-6);
+    background-color: var(--color-primary-4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,34 +44,45 @@
     border-radius: 0px 37.5px 0px 42.5px;
 }
 
-.dish-description {
-    color: #434343;
+.produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    gap: 18px;
+    width: 25%;
+    padding: 20px;
+    background-color: var(--color-neutral-0);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.produto-tamanho {
     text-align: center;
 }
-
-.dish-rate i {
-    color: var(--color-primary-6);
+.produto-capacidade {
+    color: #434343;
 }
-
-.dish-price {
+.produto-preco {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
+
+
 @media screen and (max-width: 1170px) {
-    #dishes {
+    #produtos{
         flex-wrap: wrap;
         justify-content: center;
     }
-
-    .dish {
+    .produto {
         width: calc(50% - 12px);
     }
 }
 
 @media screen and (max-width: 600px) {
-    .dish {
+    .produto {
         width: 100%;
     }
 

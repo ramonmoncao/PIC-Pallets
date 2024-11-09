@@ -3,7 +3,7 @@ header {
     padding: 28px 8%;
     position: sticky;
     top: 0;
-    background-color: var(--color-neutral-1);
+    background-color: var(--color-primary-4);
     z-index: 3;
 }
 
@@ -33,7 +33,7 @@ header {
 
 .nav-item.active a {
     color: var(--color-neutral-0);
-    border-bottom: 3px solid var(--color-primary-5);
+    border-bottom: 3px solid var(--color-primary-3);
 }
 
 #mobile_btn {
@@ -43,7 +43,12 @@ header {
 #mobile_menu {
     display: none;
 }
-
+.usuario img{
+    max-width:50px;
+    max-height:50px;
+    width: auto;
+    height: auto;
+}
 @media screen and (max-width: 1170px) {
     #nav_list,
     #navbar .btn-default {

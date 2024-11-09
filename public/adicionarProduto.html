@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+</head>
+<body>
+    <form id="productForm">
+        <label>Nome do Pallet: <input type="text" id="productName" required></label><br>
+        <label>Preço: <input type="number" id="productPrice" required></label><br>
+        <label>Largura: <input type="number" id="productWidth" required></label><br>
+        <label>Comprimento: <input type="number" id="productLength" required></label><br>
+        <label>Capacidade: <input type="number" id="productCapacity" required></label><br>
+        <button type="button" onclick="adicionarProduto()">Adicionar Produto</button>
+    </form>
+    <script>function adicionarProduto(){
+        const name = document.getElementById('productName').value;
+        const price = Number(document.getElementById('productPrice').value);
+        const length = Number(document.getElementById('productLength').value);
+        const width = Number(document.getElementById('productWidth').value);
+        const capacity = Number(document.getElementById('productCapacity').value);
+        fetch('http://localhost:3000/api/products', {
+            method: 'POST',headers: {
+        'Content-Type': 'application/json'
+        },
+            body: JSON.stringify({
+                name: name,
+                price: price,
+                length: length,
+                width: width,
+                capacity: capacity
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto adicionado:', data);
+            alert('Produto adicionado com sucesso!');
+            document.getElementById('productForm').reset();
+        })
+        .catch(error => {
+            console.error('Erro ao adicionar o produto:', error);
+        });
+        
+    }
+    </script>
+</body>
+</html>
