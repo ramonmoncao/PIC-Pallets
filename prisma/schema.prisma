@@ -37,6 +37,7 @@ model Product{
   length Int
   capacity Int
   price Float
+  img String
   item Items[]
 }
 model Items{

@@ -12,37 +12,88 @@
         <label>Largura: <input type="number" id="productWidth" required></label><br>
         <label>Comprimento: <input type="number" id="productLength" required></label><br>
         <label>Capacidade: <input type="number" id="productCapacity" required></label><br>
+        <label for="imageUpload">Clique aqui para selecionar uma imagem</label>
+        <input type="file" id="imageUpload" accept="image/*">
         <button type="button" onclick="adicionarProduto()">Adicionar Produto</button>
     </form>
-    <script>function adicionarProduto(){
-        const name = document.getElementById('productName').value;
-        const price = Number(document.getElementById('productPrice').value);
-        const length = Number(document.getElementById('productLength').value);
-        const width = Number(document.getElementById('productWidth').value);
-        const capacity = Number(document.getElementById('productCapacity').value);
-        fetch('http://localhost:3000/api/products', {
-            method: 'POST',headers: {
-        'Content-Type': 'application/json'
-        },
-            body: JSON.stringify({
-                name: name,
-                price: price,
-                length: length,
-                width: width,
-                capacity: capacity
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Produto adicionado:', data);
-            alert('Produto adicionado com sucesso!');
-            document.getElementById('productForm').reset();
-        })
-        .catch(error => {
-            console.error('Erro ao adicionar o produto:', error);
-        });
-        
-    }
+
+    <script>
+        function adicionarProduto() {
+            const imageUpload = document.getElementById('imageUpload');
+            const file = imageUpload.files[0]; // Captura o arquivo da imagem selecionada
+
+            if (!file) {
+                return alert("Por favor, selecione uma imagem.");
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                // Cria uma nova imagem
+                const imgElement = new Image();
+                imgElement.src = event.target.result; // Resultado da leitura da imagem em Base64
+                imgElement.onload = function() {
+                    // Redimensionar e comprimir a imagem usando canvas
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const maxWidth = 800; // Tamanho máximo desejado
+                    const maxHeight = 800;
+
+                    // Redefine as variáveis width e height dentro do escopo da função onload
+                    let imgWidth = imgElement.width;
+                    let imgHeight = imgElement.height;
+
+                    // Se a imagem for maior que o tamanho máximo, redimensionamos
+                    if (imgWidth > maxWidth || imgHeight > maxHeight) {
+                        const ratio = Math.min(maxWidth / imgWidth, maxHeight / imgHeight);
+                        imgWidth = imgWidth * ratio;
+                        imgHeight = imgHeight * ratio;
+                    }
+
+                    canvas.width = imgWidth;
+                    canvas.height = imgHeight;
+                    ctx.drawImage(imgElement, 0, 0, imgWidth, imgHeight);
+
+                    // Converter a imagem comprimida para Base64
+                    const base64String = canvas.toDataURL('image/jpeg', 0.7); // 0.7 é a qualidade da compressão (0 a 1)
+
+                    console.log("Base64 comprimido:", base64String);
+
+                    // Enviar a imagem para a API
+                    const name = document.getElementById('productName').value;
+                    const price = Number(document.getElementById('productPrice').value);
+                    const length = Number(document.getElementById('productLength').value);
+                    const width = Number(document.getElementById('productWidth').value);
+                    const capacity = Number(document.getElementById('productCapacity').value);
+
+                    fetch('http://localhost:3000/api/products', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            price: price,
+                            length: length,
+                            width: width,
+                            capacity: capacity,
+                            img: base64String // Envia o base64 da imagem comprimida
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Produto adicionado:', data);
+                        alert('Produto adicionado com sucesso!');
+                        document.getElementById('productForm').reset(); // Limpa o formulário
+                    })
+                    .catch(error => {
+                        console.error('Erro ao adicionar o produto:', error);
+                    });
+                };
+            };
+
+            reader.readAsDataURL(file); // Lê o arquivo da imagem como Base64
+        }
     </script>
 </body>
 </html>

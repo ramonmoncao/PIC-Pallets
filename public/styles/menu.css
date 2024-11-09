@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    border-radius: 20% 20% 20% 20%;
 }
 .produto-btn {
     border: none;
@@ -68,7 +69,10 @@
     align-items: center;
     gap: 20px;
 }
-
+#imgProduct{
+   width: 100%;
+   
+}
 
 
 @media screen and (max-width: 1170px) {
@@ -78,6 +82,10 @@
     }
     .produto {
         width: calc(50% - 12px);
+    }
+    #imgProduct{
+        width: 100%;
+        justify-self: center;
     }
 }
 

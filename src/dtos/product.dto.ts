@@ -20,6 +20,10 @@ export class CreateProductDto {
     @IsNumber()
     @IsNotEmpty()
     price!: number
+
+    @IsString()
+    @IsOptional()
+    img?: string
 }
 
 export class UpdateProductDto {

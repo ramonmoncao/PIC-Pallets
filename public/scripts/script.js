@@ -10,7 +10,7 @@ const navItems = $('.nav-item');
 
 $(window).on('scroll', function () {
     const header = $('header');
-    const scrollPosition = $(window).scrollTop() - header.outerHeight();
+    const scrollPosition = $(window).scrollTop();
 
     let activeSectionIndex = 0;
 
@@ -47,7 +47,7 @@ ScrollReveal().reveal('.dish', {
     distance: '20%'
 });
 
-ScrollReveal().reveal('#testimonials_chef', {
+ScrollReveal().reveal('', {
     origin: 'left',
     duration: 1000,
     distance: '20%'
