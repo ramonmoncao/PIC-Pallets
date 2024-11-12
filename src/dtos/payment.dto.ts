@@ -1,7 +1,7 @@
 import { IsDate, IsInt, IsNotEmpty, IsNumber, IsOptional, IsPositive, IsString } from "class-validator"
 
 export class CreatePaymentDto {
-    @IsString()
+    @IsInt()
     @IsNotEmpty()
     orderId!: number  // Identificador (obrigatório)
 
