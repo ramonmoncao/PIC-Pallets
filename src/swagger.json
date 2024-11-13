@@ -71,6 +71,50 @@
               
             }
           },
+          "/products": {
+            "post": {
+                "summary": "Adicionar produto",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schema/CreateProductsDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Sucesso",
+                        "content":{
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schema/Products"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    
+                    }
+                }
+            }
+          }
+
         }
     },
     "components": {
@@ -91,6 +135,60 @@
               "type": "string"
             }
           }
+        }, 
+        "CreateUserDto": {
+            "type": "object",
+            "properties": {
+                "name": {
+                "type": "string"
+                },
+                "email": {
+                "type": "string"
+                },
+                "password": {
+                "type": "string"
+                }
+            }
+        }
+        "Products": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "int"
+                },
+                "lenght": {
+                    "type": "int"
+                },
+                "capacity":{
+                    "type": "int"
+                },
+                "price": {
+                    "type": "float"
+                }
+            }
+        },
+        "CreateProductDto": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "number"
+                },
+                "lenght": {
+                    "type": "number"
+                },
+                "capacity":{
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                }
+            }
         }
       }
     }
