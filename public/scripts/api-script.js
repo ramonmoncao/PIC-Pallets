@@ -26,7 +26,7 @@ function carregarDados() {
                 <div class=produto-capacidade><strong>Capacidade:</strong> ${produto.capacity}KG</div>
                 <div class=produto-preco><strong> R$${produto.price},00 </strong></div>
                 <div class =produto-heart><i class="fa-solid fa-heart"></i></div>
-                <button class=produto-btn><i class="f">adicionar ao carrinho</i></button>
+                <button class=produto-btn><i class="f"><a href="https://wa.me/5519995000074?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank">Faça seu orçamento</i></button>
             `
             dadosContainer.appendChild(produtoDiv);
         });
