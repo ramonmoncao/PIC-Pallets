@@ -7,12 +7,15 @@
 
 :root {
     --color-primary-1: rgb(234, 247, 255);
-    --color-primary-2: #5449f3;
+    --color-primary-2: #3477db;
     --color-primary-3: #81c3d7;
     --color-primary-4: #16425b;
     --color-primary-5: #3a7ca5;
     --color-primary-6: #020202;
-    --color-primary-7: #f5f5f5;
+    --color-primary-7: #e7f3ff;
+    --color-primary-8: #3f9fdb;
+    --color-primary-9: #4985aa;
+
 
     --color-neutral-0: #fff;
     --color-neutral-1: #1d1d1d;
@@ -92,6 +95,10 @@ section {
 }
 
 .section-subtitle {
+    color: var(--color-primary-8);
+    font-size: 2.1875rem;
+} 
+.section-subtitlee {
     color: var(--color-primary-3);
     font-size: 2.1875rem;
 } 
