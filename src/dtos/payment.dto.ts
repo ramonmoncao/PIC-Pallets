@@ -13,11 +13,6 @@ export class CreatePaymentDto {
     @IsDate()
     @IsNotEmpty()
     date!: Date  // Data (obrigatório)
-
-    @IsString()
-    @IsOptional()
-    description?: string
-
 }
 
 export class UpdatePaymentDto {
@@ -32,8 +27,4 @@ export class UpdatePaymentDto {
     @IsDate()
     @IsOptional()
     date?: Date  // Data (opcional para atualização)
-
-    @IsString()
-    @IsOptional()
-    description?: string
 }
