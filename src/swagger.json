@@ -29,51 +29,50 @@
                     }
                 }
             }
-<<<<<<< HEAD
           },
           "/products": {
-            "post": {
-                "summary": "Adicionar produto",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schema/CreateProductsDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Sucesso",
-                        "content":{
+                "post": {
+                    "summary": "Adicionar produto",
+                    "requestBody": {
+                        "required": true,
+                        "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schema/Products"
+                                    "$ref": "#/components/schema/CreateProductsDto"
                                 }
                             }
                         }
                     },
-                    "400": {
-                        "description": "Erro",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string"
+                    "responses": {
+                        "201": {
+                            "description": "Sucesso",
+                            "content":{
+                                "application/json": {
+                                    "schema": {
+                                        "$ref": "#/components/schema/Products"
+                                    }
+                                }
+                            }
+                        },
+                        "400": {
+                            "description": "Erro",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "message": {
+                                                "type": "string"
+                                            }
                                         }
                                     }
                                 }
                             }
+                        
                         }
-                    
                     }
                 }
             }
-          }
 
         }
     },
@@ -150,10 +149,5 @@
                 }
             }
         }
-      }
     }
-=======
-        }
-    } 
->>>>>>> b8ef284cbd3f46754da436e02f3844682c72f9f1
 }
