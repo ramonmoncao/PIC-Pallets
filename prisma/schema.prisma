@@ -46,8 +46,9 @@ model Items{
   price Float
   subtotal Float
   orderId Int
-  products Product[]
-  order Order  @relation(fields: [orderId], references: [id]) 
+  productId Int
+  order Order  @relation(fields: [orderId], references: [id])
+  product Product  @relation(fields: [productId], references: [id])  
 }
 model Payment{
   id Int @id @default(autoincrement())

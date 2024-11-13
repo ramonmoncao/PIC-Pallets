@@ -20,6 +20,10 @@
     transition: background-color .3s ease;
     color: var(--color-primary-1);
 }
+.produto-btn a {
+    text-decoration: none;
+    color: var(--color-neutral-0);
+}
 .produto-btn:hover {
     background-color: var(--color-primary-5);
 }
