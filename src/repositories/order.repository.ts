@@ -1,5 +1,5 @@
-import { CreateOrderDto, UpdateOrderDto } from '../dtos/payment.dto'
-import Order from '../entities/payment.entity'
+import { CreateOrderDto, UpdateOrderDto } from '../dtos/order.dto'
+import Order from '../entities/order.entity'
 
 export const createOrder = async (data: CreateOrderDto) => {
     return Order.create({ data })

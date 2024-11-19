@@ -1,5 +1,5 @@
 // URL do endpoint da API
-const url = 'https://pic-pallets-axqx.onrender.com/api/products';
+const url = 'http://localhost:3000/api/products';
 
 // Função para consumir a API e exibir os dados no HTML
 function carregarDados() {

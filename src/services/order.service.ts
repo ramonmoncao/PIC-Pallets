@@ -17,6 +17,6 @@ export const updateOrderService = async (id: number, data: UpdateOrderDto) => {
     return updateOrder(id, data)
 }
 
-export const deletePaymentService = async (id: number) => {
-    return deletePayment(id)
+export const deleteOrderService = async (id: number) => {
+    return deleteOrder(id)
 }

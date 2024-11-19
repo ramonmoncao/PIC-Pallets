@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { createOrderService, deleteOrderService, findAllOrderService, findOrderByIdService, updateOrderService } from "../services/payment.service"
+import { createOrderService, deleteOrderService, findAllOrderService, findOrderByIdService, updateOrderService } from "../services/order.service"
 
 export const createOrder = async (req: Request, res: Response) => {
     try {
