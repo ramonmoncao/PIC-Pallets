@@ -4,6 +4,10 @@ export class CreateItemsDto {
     @IsInt()
     @IsNotEmpty()
     orderId!: number  // Identificador (obrigatório)
+    @IsInt()
+    @IsNotEmpty()
+    productId!: number  // Identificador (obrigatório)
+
 
     @IsNumber()
     @IsNotEmpty()
