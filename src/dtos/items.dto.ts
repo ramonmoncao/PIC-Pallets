@@ -24,9 +24,7 @@ export class CreateItemsDto {
     @IsNotEmpty()
     date!: Date  // Data (obrigatório)
 
-    @IsString()
-    @IsOptional()
-    description?: string
+
 
 }
 
