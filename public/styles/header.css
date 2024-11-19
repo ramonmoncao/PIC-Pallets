@@ -1,3 +1,4 @@
+/* Estilos do Header */
 header {
     width: 100%;
     padding: 28px 8%;
@@ -6,10 +7,8 @@ header {
     background-color: var(--color-primary-4);
     z-index: 3;
 }
-#navbar .btn-default{
-    
-    gap: 100000px;
-}
+
+/* Configuração geral da navbar */
 #navbar {
     width: 100%;
     display: flex;
@@ -17,17 +16,23 @@ header {
     justify-content: space-between;
 }
 
+/* Estilo do logo no lado esquerdo */
 #nav_logo {
     font-size: 24px;
     color: var(--color-neutral-0);
+    font-weight: bold;
 }
 
+/* Centraliza a lista de navegação */
 #nav_list {
     display: flex;
     list-style: none;
     gap: 48px;
+    justify-content: center;
+    flex: 1;
 }
 
+/* Estilos dos links da lista */
 .nav-item a {
     text-decoration: none;
     color: #1d1d1dad;
@@ -39,16 +44,30 @@ header {
     border-bottom: 3px solid var(--color-primary-3);
 }
 
-#mobile_btn {
-    display: none;
+/* Alinha o botão de orçamento e o ícone de usuário à direita */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
-#mobile_menu {
-    display: none;
+/* Estilo do botão de orçamento */
+#orcamento .btn-default {
+    background-color: #007bff; /* Ajuste a cor conforme necessário */
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+#orcamento a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .usuario {
     display: flex;
-    gap: 18px;
 }
 
 .usuario a {
@@ -61,22 +80,27 @@ header {
     font-size: 1.25rem;
     border-radius: 10px;
     text-decoration: none;
-    color: var(--color-neutral-0);;
+    color: var(--color-neutral-0);
     box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow;
+    transition: box-shadow 0.3s ease;
 }
 
+/* Esconde o botão de menu em telas grandes */
+#mobile_btn {
+    display: none;
+}
+
+/* Estilos para telas menores */
 @media screen and (max-width: 1170px) {
     #nav_list,
-    #navbar .btn-default {
-        
+    #orcamento {
         display: none;
     }
 
     #mobile_btn {
         display: block;
         border: none;
-        background-color: var(--color-primary-4) ;
+        background-color: var(--color-primary-4);
         font-size: 1.5rem;
         cursor: pointer;
     }
