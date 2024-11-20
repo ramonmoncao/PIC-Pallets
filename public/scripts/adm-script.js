@@ -1,5 +1,5 @@
 // URL do endpoint da API
-const url = 'http://localhost:3000/api/products';
+const url = 'https://pic-pallets-axqx.onrender.com/api/products';
 
 // Função para consumir a API e exibir os dados no HTML
 function carregarDados() {
@@ -12,6 +12,7 @@ function carregarDados() {
         return response.json();
     })
     .then(data => {
+        if(!data){}
         // Seleciona o elemento HTML onde os dados serão exibidos
         const dadosContainer = document.getElementById('produtos');
         console.log(dadosContainer)
@@ -26,7 +27,6 @@ function carregarDados() {
                 <div class="produto-tamanho"> ${produto.width}x${produto.length}</div>
                 <div class="produto-capacidade"><strong>Capacidade:</strong> ${produto.capacity}KG</div>
                 <div class="produto-preco"><strong> R$${produto.price},00 </strong></div>
-                <div class ="produto-heart"><i class="fa-solid fa-heart"></i></div>
                 <a class="produto-btn" href= "atualizarProduto.html?id=${produto.id}"><i class="editar">Editar</i></a>
                 <button class="produto-btn"><i class="remover" onclick= removerProduto(${produto.id})>Remover</i></button>
             `

@@ -72,7 +72,7 @@
                     const width = Number(document.getElementById('productWidth').value);
                     const capacity = Number(document.getElementById('productCapacity').value);
 
-                    fetch('http://localhost:3000/api/products', {
+                    fetch('https://pic-pallets-axqx.onrender.com/api/products', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -94,6 +94,7 @@
                     })
                     .catch(error => {
                         console.error('Erro ao adicionar o produto:', error);
+                        document.getElementById('productForm').reset();
                     });
                 };
             };
