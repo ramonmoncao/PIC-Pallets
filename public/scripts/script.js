@@ -4,6 +4,7 @@ $(document).ready(function() {
         $('#mobile_menu').toggleClass('active'); // Abre/fecha o menu
         $(this).find('i').toggleClass('fa-bars fa-x'); // Troca o ícone do hambúrguer
         $('#overlay').toggle(); // Mostra ou esconde o overlay
+        
     });
 
     // Fechar o menu e o overlay quando clicar no botão "X" de fechar

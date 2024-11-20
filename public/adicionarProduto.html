@@ -11,14 +11,14 @@
 <body>
     <button class="produto-btn"><a href="admPage.html">Voltar</a></button><br>
     <form id="productForm">
-        <label>Nome do Pallet:</label> <input type="text" id="productName" required><br>
-        <label>Preço:</label> <input type="number" id="productPrice" required><br>
-        <label>Largura:</label> <input type="number" id="productWidth" required><br>
-        <label>Comprimento:</label> <input type="number" id="productLength" required><br>
-        <label>Capacidade:</label> <input type="number" id="productCapacity" required><br>
-        <label for="imageUpload">Clique aqui para selecionar uma imagem:</label>
-        <input type="file" id="imageUpload" accept="image/*"><br><br>
-        <button type="button" onclick="adicionarProduto()">Adicionar Produto</button>
+        <label>Nome do Pallet</label> <input class="input" type="text" id="productName" required><br>
+        <label>Preço</label> <input class="input" type="number" id="productPrice" required><br>
+        <label>Largura</label> <input class="input" type="number" id="productWidth" required><br>
+        <label>Comprimento</label> <input class="input" type="number" id="productLength" required><br>
+        <label>Capacidade</label> <input class="input" type="number" id="productCapacity" required><br>
+        <label for="imageUpload" class ="imgUpload">Selecione uma imagem</label>
+        <input  class="buttonImg" type="file" id="imageUpload" accept="image/*"><br><br>
+        <div id = "button"><button class="button" type="button" onclick="adicionarProduto()"><strong>Adicionar Produto</strong></button></div>
     </form>
 
     <script>

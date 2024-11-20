@@ -10,7 +10,7 @@
     --color-primary-9: #4985aa;
 }    
 body {
-    background-color: var(--color-primary-4);
+    background-color: var(--color-primary-3);
 }
 
 label {
@@ -37,4 +37,51 @@ h1 {
 }
 .produto-btn {
     text-decoration: none;
+}
+#productForm label{
+    color:var(--color-primary-1);
+    background-color: transparent;
+    font-family: Arial;
+    display: flex;
+    position: relative;
+    justify-self: center;
+    padding-top: 30px;
+
+}
+#button{
+    justify-self: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+#productForm{
+    width: 500px;
+    display: grid;
+    justify-self: center;
+    justify-content: center;    
+    background-color: var(--color-primary-5);
+    border-radius: 20% 20% 20% 20%;
+    box-shadow:#020202;
+    box-shadow: 10px 10px 40px var(--color-primary-4);
+}
+.input{
+    height: 25px;
+    border-radius: 20px 20px 20px 20px;
+    border-style: hidden;
+    box-shadow: 5px 5px 35px var(--color-primary-5);
+}
+.button{
+    background-color: var(--color-primary-4);  /* Cor de fundo */
+    color: white;               /* Cor do texto */
+    padding: 10px 20px;         /* Espaçamento interno (topo e lateral) */
+    border: none;               /* Remove a borda padrão */
+    border-radius: 8px;     
+    font-family: Arial;    /* Bordas arredondadas */
+    font-size: 20px;            /* Tamanho da fonte */
+    cursor: pointer;           /* Mostra o cursor de ponteiro quando o botão é hover */
+    transition: background-color 0.3s, transform 0.3s;
+}
+.imgUpload {  
+    cursor: pointer;           
+    display: inline-block;      
+    
 }
