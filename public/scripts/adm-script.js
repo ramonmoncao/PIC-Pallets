@@ -26,9 +26,8 @@ function carregarDados() {
                 <div class="produto-tamanho"> ${produto.width}x${produto.length}</div>
                 <div class="produto-capacidade"><strong>Capacidade:</strong> ${produto.capacity}KG</div>
                 <div class="produto-preco"><strong> R$${produto.price},00 </strong></div>
-                <div class ="produto-heart"><i class="fa-solid fa-heart"></i></div>
-                <a class="produto-btn" href= "atualizarProduto.html?id=${produto.id}"><i class="editar">Editar</i></a>
-                <button class="produto-btn"><i class="remover" onclick= removerProduto(${produto.id})>Remover</i></button>
+                <a class="produto-btn" href= "atualizarProduto.html?id=${produto.id}">Editar</a>
+                <button class="produto-btn" onclick= removerProduto(${produto.id})>Remover</button>
             `
             dadosContainer.appendChild(produtoDiv);
         });
