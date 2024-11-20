@@ -109,6 +109,10 @@ header {
         font-size: 1.5rem;
         cursor: pointer;
     }
+    #nav_logo img{
+        width: 25px;
+        height: 25px;
+    }
 
     #mobile_menu.active {
         display: flex;
