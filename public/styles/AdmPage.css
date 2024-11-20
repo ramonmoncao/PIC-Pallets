@@ -29,6 +29,7 @@ h1 {
     display: inline-block;
     margin-top: 20px;          
 }
+
 .produto {
     background-color: var(--color-primary-3);
     color: var(--color-primary-6);
