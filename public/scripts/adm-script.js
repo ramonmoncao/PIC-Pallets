@@ -1,5 +1,5 @@
 // URL do endpoint da API
-const url = 'http://localhost:3000/api/products';
+const url = 'https://pic-pallets-axqx.onrender.com/api/products';
 
 // Função para consumir a API e exibir os dados no HTML
 function carregarDados() {
@@ -49,6 +49,7 @@ function removerProduto(id) {
       if (response.ok) {
         console.log('Recurso deletado com sucesso');
         alert('Produto deletado com sucesso!');
+        window.location.reload()
       } else {
         console.error('Erro ao deletar o recurso');
         alert('Erro ao deletar o recurso.');
