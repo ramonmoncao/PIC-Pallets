@@ -29,6 +29,12 @@ h1 {
     display: inline-block;
     margin-top: 20px;          
 }
-.produto{
+
+.produto {
     background-color: var(--color-primary-3);
+    color: var(--color-primary-6);
+    font-family: Arial;
+}
+.produto-btn {
+    text-decoration: none;
 }

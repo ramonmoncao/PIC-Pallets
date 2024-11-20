@@ -61,6 +61,7 @@
     box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    justify-content: end;
 }
 .produto-tamanho {
     text-align: center;
@@ -74,8 +75,7 @@
     gap: 20px;
 }
 #imgProduct{
-   width: 200px;
-   height: 200px;
+   width: 100%;
    
 }
 
