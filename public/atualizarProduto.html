@@ -22,6 +22,9 @@
         <label for="productLength">Comprimento:</label>
         <input type="number" id="productLength" class="input" required><br>
 
+        <label for="productCapacity">Capacidade:</label>
+        <input type="number" id="productCapacity" class="input" required><br>
+
         <label for="productPrice">Preço:</label>
         <input type="number" id="productPrice" class="input" required><br>
         <br>
@@ -38,15 +41,32 @@
 
         // Função para buscar os dados do produto e preencher o formulário
         function loadProductData(productId) {
-            console.log(productId)
-            fetch(`http://localhost:3000/api/products/${productId}`)
+
+            fetch(`https://pic-pallets-axqx.onrender.com/api/products/${productId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data) {
-                        document.getElementById('productName').value = data.name;
-                        document.getElementById('productWidth').value = data.width;
-                        document.getElementById('productLength').value = data.length;
-                        document.getElementById('productPrice').value = data.price;
+                        const nameField = document.getElementById('productName');
+                        const widthField = document.getElementById('productWidth');
+                        const lengthField = document.getElementById('productLength');
+                        const capacity = document.getElementById('productCapacity');
+                        const priceField = document.getElementById('productPrice');
+
+                        // Preencher os valores do formulário
+                        nameField.value = data.name;
+                        nameField.defaultValue = data.name; // Define o valor padrão
+
+                        widthField.value = data.width;
+                        widthField.defaultValue = data.width;
+
+                        lengthField.value = data.length;
+                        lengthField.defaultValue = data.length;
+
+                        lengthField.value = data.capacity;
+                        lengthField.defaultValue = data.capacity;
+
+                        priceField.value = data.price;
+                        priceField.defaultValue = data.price;
                     } else {
                         alert('Produto não encontrado!');
                     }
@@ -56,42 +76,52 @@
                 });
         }
 
+
         // Função de atualização de produto
         function updateProduct() {
-            const productId = getProductId(); // Pega o ID do produto da URL
+            const productId = getProductId(); // ID do produto da URL
 
-            // Obter os valores dos campos do formulário
-            const name = document.getElementById('productName').value;
-            const width = Number(document.getElementById('productWidth').value);
-            const length = Number(document.getElementById('productLength').value);
-            const price = Number(document.getElementById('productPrice').value);
+            // Obter os campos do formulário
+            const productNameField = document.getElementById('productName');
+            const productWidthField = document.getElementById('productWidth');
+            const productLengthField = document.getElementById('productLength');
+            const productCapacityField = document.getElementById('productCapacity');
+            const productPriceField = document.getElementById('productPrice');
 
-            // Criar o objeto com os dados que serão atualizados
+            // Garantir que os valores não sejam enviados como vazio
+            const name = productNameField.value.trim() || productNameField.defaultValue;
+            const width = productWidthField.value.trim() || productWidthField.defaultValue;
+            const length = productLengthField.value.trim() || productLengthField.defaultValue;
+            const capacity= productCapacityField.value.trim() || productCapacityField.defaultValue;
+            const price = productPriceField.value.trim() || productPriceField.defaultValue;
+
+            // Objeto com os dados do produto
             const updatedProduct = {
                 name: name,
-                width: width,
-                length: length,
-                price: price
+                width: Number(width),
+                length: Number(length),
+                capacity: Number(capacity),
+                price: Number(price)
             };
 
-            // Fazer a requisição PATCH para a API
+            // Fazer a requisição PATCH
             fetch(`https://pic-pallets-axqx.onrender.com/api/products/${productId}`, {
-                method: 'PATCH',  // Método PATCH para atualização
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(updatedProduct)
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Produto atualizado:', data);
-                alert('Produto atualizado com sucesso!');
-                document.getElementById('updateForm').reset();  // Limpa o formulário após a atualização
-            })
-            .catch(error => {
-                console.error('Erro ao atualizar o produto:', error);
-                alert('Erro ao atualizar o produto.');
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Produto atualizado:', data);
+                    alert('Produto atualizado com sucesso!');
+                    document.getElementById('updateForm').reset(); // Limpar o formulário
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar o produto:', error);
+                    alert('Erro ao atualizar o produto.');
+                });
         }
 
         // Carregar os dados do produto assim que a página for carregada
