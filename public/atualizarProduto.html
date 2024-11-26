@@ -9,24 +9,25 @@
     <link rel="icon" type="image/x-icon" href="./imgs/indaiatubapallet.ico">
 </head>
 <body>
-    <h1>Atualizar Produto</h1>
+
     <button class="produto-btn"><a href="admPage.html"> Voltar</a></button></br>
     <!-- Formulário de atualização -->
     <form id="updateForm">
         <label for="productName">Nome do Produto:</label>
-        <input type="text" id="productName" required><br>
+        <input type="text" id="productName" class="input" required><br>
 
         <label for="productWidth">Largura:</label>
-        <input type="number" id="productWidth" required><br>
+        <input type="number" id="productWidth" class="input" required><br>
 
         <label for="productLength">Comprimento:</label>
-        <input type="number" id="productLength" required><br>
+        <input type="number" id="productLength" class="input" required><br>
 
         <label for="productPrice">Preço:</label>
-        <input type="number" id="productPrice" required><br>
+        <input type="number" id="productPrice" class="input" required><br>
         <br>
-        <button type="button" onclick="updateProduct()">Atualizar Produto</button>
+        <button type="button" class="button" onclick="updateProduct()"><STrong>Atualizar Produto</STrong></button>
     </form>
+
 
     <script>
         // Função para obter o ID do produto da URL
